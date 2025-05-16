@@ -12,6 +12,7 @@ var targetFiles = map[string]bool{
 	"package.json":true,
 	".env.example":true,
 	"go.mod":true,
+	"main.go":true,
 }
 
 func readLines(path string) (string, error) {

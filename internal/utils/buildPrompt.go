@@ -23,7 +23,7 @@ func BuildPrompt(treePath, projectName string) (string, error) {
 		- Authors name and github handle/X handle used dummy text
 		- Contribution instructions if appropriate
 
-		Note: Remove all unwanted text from the final response i want a clean readme thank you
+		Note: Remove all unwanted text from the final response i want a clean readme, also read the snippet to get code concept better thank you
 
 		--- BEGIN STRUCTURE + SNIPPETS ---
 		` + string(data) + projectName + "\n--- END ---"

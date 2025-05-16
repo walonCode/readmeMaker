@@ -1,78 +1,108 @@
 # ReadmeMaker
 
-## Description
-
-ReadmeMaker is a project designed to automatically generate custom readable markdown files based on specific attributes and codebase structures. It leverages several internal modules to facilitate this process, enhancing productivity and ensuring consistency across documentation.
+ReadmeMaker is a tool designed to automatically generate a comprehensive README.md file for a given project. This tool uses various AI models to create a well-structured and informative README based on the project's directory structure and code snippets.
 
 ## Features
 
-- Automatically generates `README.md` files
-- Parses project files to extract relevant information
-- Uses AI services to tailor content
-- Integrated environment variable management
+- Scans the project directory to detect files and directories.
+- Generates a detailed directory structure.
+- Uses AI models (Llama, Mistral, Qwen) to generate a README.md based on the project's structure and code snippets.
+- Configurable with an environmental variable for the API key.
 
 ## Installation
 
-To install ReadmeGenerator, follow these steps:
+Follow these steps to install and set up the project:
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```sh
    git clone https://github.com/walonCode/readmeMaker.git
-   ```
-
-2. Navigate into the project directory:
-   ```sh
    cd readmeMaker
    ```
 
-3. Install dependencies:
+2. **Set up the environment:**
+   - Copy the example environment file:
+     ```sh
+     cp .env.example .env
+     ```
+   - Set your API key in the `.env` file:
+     ```sh
+     API_KEY="your_api_key_here"
+     ```
+
+3. **Install dependencies:**
    ```sh
    go mod tidy
    ```
 
 ## Usage
 
-To use ReadmeGenerator, follow these instructions:
+To generate a README.md for your project, follow these steps:
 
-1. Configure your environment variables in the `.env` file.
-2. Run the main executable:
+1. **Navigate to your project directory:**
    ```sh
-   go run main.go
+   cd your_project_directory
    ```
+
+2. **Run the ReadmeMaker tool:**
+   ```sh
+   go run main.go --projectName "Your Project Name" --model "llama"
+   ```
+   Replace `"Your Project Name"` with the name of your project and `"llama"` with the desired AI model (e.g., "mistral", "qwen").
 
 ## Technologies
 
-- **Programming Language**: Go
-- **Dependencies**: joho/godotenv
+- **Go:** The main programming language used.
+- **godotenv:** A Go package to load environment variables from a `.env` file.
 
 ## Configuration and Environment Variables
 
-Create a `.env` file in the root directory, and add your API key:
+- `.env` file:
+  ```plaintext
+  API_KEY=""
+  ```
+  Set your API key in the `API_KEY` variable in the `.env` file.
 
-```
-API_KEY=your_api_key_here
-```
+- `.env.example`:
+  Provided as a template for setting up the environment variables.
 
 ## Folder Structure
 
-```markdown
-.
+Here is the organized folder structure of the ReadmeMaker project:
+
+```
+readmeMaker/
 ├── .env
 ├── .env.example
-├── .git
-│   ├── ...
+├── .git/
+│   ├── COMMIT_EDITMSG
+│   ├── HEAD
+│   ├── config
+│   ├── description
+│   ├── hooks/
+│   │   ├── ...
+│   ├── index
+│   ├── info/
+│   │   ├── exclude
+│   ├── logs/
+│   │   ├── HEAD
+│   │   ├── refs/
+│   │   ├── remotes/
+│   │   ├── tags
+│   ├── objects/
+│   │   ├──  ...
+│   ├── pack
 ├── .gitignore
-├── Readme.md
+├── README.md
 ├── go.mod
 ├── go.sum
-├── internal
-│   ├── file_parser
+├── internal/
+│   ├── file_parser/
 │   │   ├── fileParser.go
-│   ├── llm
+│   ├── llm/
 │   │   ├── ai.services.go
-│   ├── tree
+│   ├── tree/
 │   │   ├── buildTree.go
-│   ├── utils
+│   ├── utils/
 │   │   ├── buildPrompt.go
 │   │   ├── writeReadme.go
 ├── main.go
@@ -80,13 +110,14 @@ API_KEY=your_api_key_here
 
 ## Authors
 
-- **John Doe** ([@n4tur4l](https://github.com/n4tur4l))
+- **Mohamed Lamin Walon-Jalloh** (https://www.linkedin.com/in/mohamed-walon/)
 
-## Contribution
+## Contributing
 
-Contributions to ReadmeGenerator are welcome. To contribute, please follow these steps:
+Contributions are welcome! Please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch").
-3. Make your changes and push them (`git push origin feature-branch`).
-4. Open a Pull Request.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a Pull Request.
