@@ -12,6 +12,7 @@ var ignoredFolders = map[string]bool{
 	".git" : true,
 	"dist": true,
 	".next" : true,
+	".env":true,
 }
 
 type TreeBuilder struct {

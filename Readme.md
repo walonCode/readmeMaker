@@ -71,26 +71,7 @@ Here is the organized folder structure of the ReadmeMaker project:
 
 ```
 readmeMaker/
-├── .env
 ├── .env.example
-├── .git/
-│   ├── COMMIT_EDITMSG
-│   ├── HEAD
-│   ├── config
-│   ├── description
-│   ├── hooks/
-│   │   ├── ...
-│   ├── index
-│   ├── info/
-│   │   ├── exclude
-│   ├── logs/
-│   │   ├── HEAD
-│   │   ├── refs/
-│   │   ├── remotes/
-│   │   ├── tags
-│   ├── objects/
-│   │   ├──  ...
-│   ├── pack
 ├── .gitignore
 ├── README.md
 ├── go.mod
