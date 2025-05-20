@@ -28,6 +28,7 @@ type ChatCompletionResponse struct {
 func GenerateReadme(prompt, model string) (string, error) {
 	apiKey := os.Getenv("API_KEY")
 
+
 	reqBody := ChatCompletionRequest{
 		Model: model,
 		Messages: []ChatMessage{

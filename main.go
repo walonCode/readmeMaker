@@ -87,20 +87,20 @@ func main() {
 	if model == "llama" {
 		aiResponse, err := llm.GenerateReadme(prompt, llama)
 		if err != nil {
-			fmt.Println("❌ Failed to generate readme with llama Ai model ")
+			log.Fatal("❌ Failed to generate readme with llama Ai model ")
 		}
 		readme = aiResponse
 	}else if model == "mistral" {
 		aiResponse, err := llm.GenerateReadme(prompt, mistral)
 		if err != nil {
-			fmt.Println("❌ Failed to generate readme with mistral Ai model ",err)
+			log.Fatal("❌ Failed to generate readme with mistral Ai model ",err)
 		}
 
 		readme = aiResponse
 	}else if model == "qwen" {
 		aiResponse, err := llm.GenerateReadme(prompt, qwen)
 		if err != nil {
-			fmt.Println("❌ Failed to generate readme with qwen Ai model ")
+			log.Fatal("❌ Failed to generate readme with qwen Ai model ")
 		}
 
 		readme = aiResponse

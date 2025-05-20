@@ -49,11 +49,11 @@ func ParseFile(root string)(string, error) {
 		}
 
 		if !d.IsDir() && targetFiles[d.Name()]{
-			snippetBuilder.WriteString(fmt.Sprintf("\n🔹 %s\n", d.Name()))
-
 			if targetFiles[d.Name()] && filepath.Dir(path) != root {
 				return nil
 			}
+
+			snippetBuilder.WriteString(fmt.Sprintf("\n🔹 %s\n", d.Name()))
 			
 			content, err := readLines(path)
 			if err != nil {
