@@ -1,66 +1,70 @@
-# ReadmeMaker
+# readmeMaker
 
 ## Description
-readmeMaker is a Go-based tool designed to automate the generation of README files, contribution guidelines, and license files using Natural Language Models (LLMs). The tool integrates with an AI service to generate high-quality documentation based on predefined templates and input parameters.
+
+`readmeMaker` is a command-line tool designed to generate readme files, license files, and contribution guidelines. It leverages AI models such as Mistral for generating human-like documentation and ensures a professional and clean output.
 
 ## Features
-- Generate README files from specified project information.
-- Create contribution guidelines using AI.
-- Generate license files based on the specified licenses.
-- Supports multiple AI models for generation.
-- Parallel processing for faster execution.
+
+- Generate README.md
+- Generate Contribute.md
+- Generate License.txt
+- Allows specification of the AI model to be used
+- Supports flag-based configuration options for specifying the content to generate
 
 ## Installation
-Ensure you have Go installed on your system. Clone the repository and install the necessary dependencies:
 
-```sh
-git clone https://github.com/walonCode/readmeMaker.git
-cd readmeMaker
-go mod tidy
-```
+1. Clone the repository from [GitHub](https://github.com/walonCode/readmeMaker).
+2. Ensure you have Go installed on your system.
+3. Run `go mod tidy` to install all required dependencies.
+4. Place the `.env` file with appropriate values in the root directory or create one based on `.env.example`.
 
 ## Usage
-Configure your environment variables in the `.env` file:
-
-```plaintext
-API_KEY="your_api_key_here"
-```
-
-Run the tool using the command line with the required parameters:
 
 ```sh
-go run main.go -projectName "your_project_name" -model "your_ai_model" -license -contribute
+go run main.go -projectName=<projectName> -model=<model> -license -contribute
 ```
 
-- `-projectName`: Specifies the name of the project.
-- `-model`: Specifies the AI model to use for generation[mistral,gema,llama].
-- `-license`: Option to generate a license file.
-- `-contribute`: Option to generate a contribution guidelines file.
+### Parameters:
+
+- `-projectName`: The name of the repository/project for generating the README.
+- `-model`: The AI model to use (default is "mistral").
+- `-license`: Boolean flag to generate a `LICENSE.txt` file.
+- `-contribute`: Boolean flag to generate a `Contribute.md` file.
 
 ## Technologies
-- **Go**: Main programming language.
-- **godotenv**: Library for loading environment variables from a .env file.
 
-## Configuration and Environment Variables
-Create a `.env` file in the root directory of the project with the following content:
+- **Go**: The programming language used to build the tool.
+- **godotenv**: For loading environment variables from the `.env` file.
+- **AI Services**: Can utilize different AI models as specified.
 
-```plaintext
-API_KEY="your_api_key_here"
+## Configuration and Environment
+
+We use a `.env` file for configuring environment variables.
+
+Example `.env` file content:
+
+```bash
+API_KEY=""
 ```
 
 ## Folder Structure
-```plaintext
-.
-├── .env
-├── .env.example
-├── .gitignore
-├── cmd
+
+```bash
+📁 .
+├── .env                             # Environment variables
+├── .env.example                    # Template for environment variables
+├── .gitignore                      # Files and directories to ignore in git
+├── Contribute.md                   # Contribution guidelines
+├── License.txt                     # License file
+├── Readme.md                       # Project documentation
+├── cmd                             # Command-line related code
 │   ├── contribute.go
 │   ├── license.go
 │   ├── readme.go
 ├── go.mod
-├── go.sum
-├── internal
+├── go.sum                         # Go module dependencies
+├── internal                        # Internal modules
 │   ├── file_parser
 │   │   ├── fileParser.go
 │   ├── llm
@@ -72,22 +76,13 @@ API_KEY="your_api_key_here"
 │   ├── utils
 │   │   ├── buildPrompt.go
 │   │   ├── writeReadme.go
-└── main.go
+├── main.go                         # Main entry point of the application
 ```
 
-## Author
-- **Name**: Mohamed Lamin Walon-Jalloh
-- **GitHub**: @walonCode
+## Authors
+
+- **WalonCode** (GitHub: [walonCode](https://github.com/walonCode))
 
 ## Contribution
-Contributions are welcome! Please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes.
-4. Push the branch to your fork.
-5. Open a Pull Request.
-
-In your PR, please include a clear description of the changes and why they are necessary. Make sure to update any relevant documentation as well.
-
-```
+Please refer to [Contribute.md](Contribute.md) for guidelines on how to contribute to this project.
