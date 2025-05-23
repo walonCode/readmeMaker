@@ -1,5 +1,4 @@
 MIT License
-by Mitchell Mitchell
 
 Copyright (c) 2025 Mohamed Jalloh
 
