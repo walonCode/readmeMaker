@@ -1,4 +1,4 @@
-# readmeMaker
+# ReadmeMaker
 
 ## Description
 readmeMaker is a Go-based tool designed to automate the generation of README files, contribution guidelines, and license files using Natural Language Models (LLMs). The tool integrates with an AI service to generate high-quality documentation based on predefined templates and input parameters.
@@ -33,7 +33,7 @@ go run main.go -projectName "your_project_name" -model "your_ai_model" -license 
 ```
 
 - `-projectName`: Specifies the name of the project.
-- `-model`: Specifies the AI model to use for generation.
+- `-model`: Specifies the AI model to use for generation[mistral,gema,llama].
 - `-license`: Option to generate a license file.
 - `-contribute`: Option to generate a contribution guidelines file.
 
@@ -76,9 +76,8 @@ API_KEY="your_api_key_here"
 ```
 
 ## Author
-- **Name**: Jane Doe
-- **GitHub**: @wilonCode
-- **Twitter**: [@JaneDoehandle](https://twitter.com/JaneDoeHandle)
+- **Name**: Mohamed Lamin Walon-Jalloh
+- **GitHub**: @walonCode
 
 ## Contribution
 Contributions are welcome! Please follow these steps:
