@@ -25,16 +25,24 @@ type ChatCompletionResponse struct {
 	} `json:"choices"`
 }
 
-func GenerateReadme(prompt, model string) (string, error) {
+var models = map[string]string{
+	"mistral":"mistral-saba-24b",
+	"llama":"llama3-70b-8192",
+	"gema":"gemma2-9b-it",
+}
+
+func AiGeneration(prompt, model string) (string, error) {
 	apiKey := os.Getenv("API_KEY")
 
 
 	reqBody := ChatCompletionRequest{
-		Model: model,
+		Model: models[model],
 		Messages: []ChatMessage{
 			{Role: "user", Content: prompt},
 		},
 	}
+
+	
 
 	bodyBytes, err := json.Marshal(reqBody)
 	if err != nil {

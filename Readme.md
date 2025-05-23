@@ -1,104 +1,94 @@
-# ReadmeMaker
+# readmeMaker
 
-ReadmeMaker is a tool designed to automatically generate a comprehensive README.md file for a given project. This tool uses various AI models to create a well-structured and informative README based on the project's directory structure and code snippets.
+## Description
+readmeMaker is a Go-based tool designed to automate the generation of README files, contribution guidelines, and license files using Natural Language Models (LLMs). The tool integrates with an AI service to generate high-quality documentation based on predefined templates and input parameters.
 
 ## Features
-
-- Scans the project directory to detect files and directories.
-- Generates a detailed directory structure.
-- Uses AI models (Llama, Mistral, Qwen) to generate a README.md based on the project's structure and code snippets.
-- Configurable with an environmental variable for the API key.
+- Generate README files from specified project information.
+- Create contribution guidelines using AI.
+- Generate license files based on the specified licenses.
+- Supports multiple AI models for generation.
+- Parallel processing for faster execution.
 
 ## Installation
+Ensure you have Go installed on your system. Clone the repository and install the necessary dependencies:
 
-Follow these steps to install and set up the project:
-
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/walonCode/readmeMaker.git
-   cd readmeMaker
-   ```
-
-2. **Set up the environment:**
-   - Copy the example environment file:
-     ```sh
-     cp .env.example .env
-     ```
-   - Set your API key in the `.env` file:
-     ```sh
-     API_KEY="your_api_key_here"
-     ```
-
-3. **Install dependencies:**
-   ```sh
-   go mod tidy
-   ```
+```sh
+git clone https://github.com/walonCode/readmeMaker.git
+cd readmeMaker
+go mod tidy
+```
 
 ## Usage
+Configure your environment variables in the `.env` file:
 
-To generate a README.md for your project, follow these steps:
+```plaintext
+API_KEY="your_api_key_here"
+```
 
-1. **Navigate to your project directory:**
-   ```sh
-   cd your_project_directory
-   ```
+Run the tool using the command line with the required parameters:
 
-2. **Run the ReadmeMaker tool:**
-   ```sh
-   go run main.go --projectName "Your Project Name" --model "llama"
-   ```
-   Replace `"Your Project Name"` with the name of your project and `"llama"` with the desired AI model (e.g., "mistral", "qwen").
+```sh
+go run main.go -projectName "your_project_name" -model "your_ai_model" -license -contribute
+```
+
+- `-projectName`: Specifies the name of the project.
+- `-model`: Specifies the AI model to use for generation.
+- `-license`: Option to generate a license file.
+- `-contribute`: Option to generate a contribution guidelines file.
 
 ## Technologies
-
-- **Go:** The main programming language used.
-- **godotenv:** A Go package to load environment variables from a `.env` file.
+- **Go**: Main programming language.
+- **godotenv**: Library for loading environment variables from a .env file.
 
 ## Configuration and Environment Variables
+Create a `.env` file in the root directory of the project with the following content:
 
-- `.env` file:
-  ```plaintext
-  API_KEY=""
-  ```
-  Set your API key in the `API_KEY` variable in the `.env` file.
-
-- `.env.example`:
-  Provided as a template for setting up the environment variables.
+```plaintext
+API_KEY="your_api_key_here"
+```
 
 ## Folder Structure
-
-Here is the organized folder structure of the ReadmeMaker project:
-
-```
-readmeMaker/
+```plaintext
+.
+├── .env
 ├── .env.example
 ├── .gitignore
-├── README.md
+├── cmd
+│   ├── contribute.go
+│   ├── license.go
+│   ├── readme.go
 ├── go.mod
 ├── go.sum
-├── internal/
-│   ├── file_parser/
+├── internal
+│   ├── file_parser
 │   │   ├── fileParser.go
-│   ├── llm/
+│   ├── llm
 │   │   ├── ai.services.go
-│   ├── tree/
+│   ├── tree
 │   │   ├── buildTree.go
-│   ├── utils/
+│   ├── types
+│   │   ├── types.go
+│   ├── utils
 │   │   ├── buildPrompt.go
 │   │   ├── writeReadme.go
-├── main.go
+└── main.go
 ```
 
-## Authors
+## Author
+- **Name**: Jane Doe
+- **GitHub**: @wilonCode
+- **Twitter**: [@JaneDoehandle](https://twitter.com/JaneDoeHandle)
 
-- **Mohamed Lamin Walon-Jalloh** (https://www.linkedin.com/in/mohamed-walon/)
-
-## Contributing
-
+## Contribution
 Contributions are welcome! Please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a Pull Request.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes.
+4. Push the branch to your fork.
+5. Open a Pull Request.
+
+In your PR, please include a clear description of the changes and why they are necessary. Make sure to update any relevant documentation as well.
+
+```
