@@ -1,4 +1,4 @@
-# Contributing to [Project Name]
+# Contributing to ReadmeMaker
 
 We welcome contributions from the community! Whether you're reporting a bug, submitting a feature request, or writing code, your help is appreciated.
 
@@ -7,7 +7,7 @@ We welcome contributions from the community! Whether you're reporting a bug, sub
 1. Fork the repository on GitHub.
 2. Clone your fork:
     ```bash
-    git clone https://github.com/your-username/[Project Name].git
+    git clone https://github.com/walonCode/readmeMaker.git
     ```
 3. Create a new branch for your work:
     ```bash
