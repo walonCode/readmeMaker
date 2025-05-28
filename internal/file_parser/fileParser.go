@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-var targetFiles = map[string]bool{
+var TargetFiles = map[string]bool{
 	"package.json":true,
 	".env.example":true,
 	"go.mod":true,
@@ -48,8 +48,8 @@ func ParseFile(root string)(string, error) {
 			return err
 		}
 
-		if !d.IsDir() && targetFiles[d.Name()]{
-			if targetFiles[d.Name()] && filepath.Dir(path) != root {
+		if !d.IsDir() && TargetFiles[d.Name()]{
+			if TargetFiles[d.Name()] && filepath.Dir(path) != root {
 				return nil
 			}
 

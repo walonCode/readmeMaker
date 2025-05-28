@@ -1,88 +1,105 @@
-# readmeMaker
+# ReadmeMaker
 
-## Description
+### Description
 
-`readmeMaker` is a command-line tool designed to generate readme files, license files, and contribution guidelines. It leverages AI models such as Mistral for generating human-like documentation and ensures a professional and clean output.
+ReadmeMaker is a command-line tool for generating professional and clean README files, as well as contribution guidelines and licenses, for your projects. By integrating artificial intelligence, ReadmeMaker simplifies the process of maintaining up-to-date documentation, saving you valuable time and effort.
 
-## Features
+### Features
 
-- Generate README.md
-- Generate Contribute.md
-- Generate License.txt
-- Allows specification of the AI model to be used
-- Supports flag-based configuration options for specifying the content to generate
+- Generate README files tailored for different types of projects.
+- Include licenses for open-source projects.
+- Generate contribution guidelines.
+- Support for multiple AI models for generating content.
 
-## Installation
+### Installation
 
-1. Clone the repository from [GitHub](https://github.com/walonCode/readmeMaker).
-2. Ensure you have Go installed on your system.
-3. Run `go mod tidy` to install all required dependencies.
-4. Place the `.env` file with appropriate values in the root directory or create one based on `.env.example`.
+1. **Clone the repository:**
 
-## Usage
+    ```bash
+    git clone github.com/walonCode/readmeMaker
+    cd readmeMaker
+    ```
 
-```sh
-go run main.go -projectName=<projectName> -model=<model> -license -contribute
-```
+2. **Install dependencies:**
 
-### Parameters:
+    ```bash
+    go get
+    ```
 
-- `-projectName`: The name of the repository/project for generating the README.
-- `-model`: The AI model to use (default is "mistral").
-- `-license`: Boolean flag to generate a `LICENSE.txt` file.
-- `-contribute`: Boolean flag to generate a `Contribute.md` file.
+3. **Set up environment variables:**
 
-## Technologies
+    Copy `.env.example` to `.env` and fill in the required values.
 
-- **Go**: The programming language used to build the tool.
-- **godotenv**: For loading environment variables from the `.env` file.
-- **AI Services**: Can utilize different AI models as specified.
+    ```bash
+    cp .env.example .env
+    ```
 
-## Configuration and Environment
+    Populate `.env` with your API key and other necessary variables.
 
-We use a `.env` file for configuring environment variables.
+### Usage
 
-Example `.env` file content:
+Run the tool using the following command:
 
 ```bash
-API_KEY=""
+go run main.go -projectName <projectName> -model <model> -license <license> -contribute
 ```
 
-## Folder Structure
+- `projectName`: The name of the project/repository.
+- `model`: The AI model to use for content generation.
+- `license`: The type of license you want to generate.
+- `contribute`: Option to include contribution guidelines (boolean flag).
 
-```bash
-📁 .
-├── .env                             # Environment variables
-├── .env.example                    # Template for environment variables
-├── .gitignore                      # Files and directories to ignore in git
-├── Contribute.md                   # Contribution guidelines
-├── License.txt                     # License file
-├── Readme.md                       # Project documentation
-├── cmd                             # Command-line related code
-│   ├── contribute.go
-│   ├── license.go
-│   ├── readme.go
+### Technologies
+
+| Technology/Tool                     | Purpose                                                                                           |
+|-------------------------------------|---------------------------------------------------------------------------------------------------|
+| ![Go](https://github.githubassets.com/images/icons/emoji/go.png) Go | Programming Language                                                         |
+| ![godotenv](https://github.githubassets.com/images/icons/emoji/env.png) godotenv | Loading environment variables                                                              |
+| ![AI Services](https://github.githubassets.com/images/icons/emoji/robot.png) AI Services | Generating project documentation automatically using AI                                      |
+| ![File Parsing](https://github.githubassets.com/images/icons/emoji/file.png) File Parsing | Parsing and writing project-related files                                                  |
+
+### Configuration and Environment Variables
+
+- **.env:**
+
+    ```plaintext
+    API_KEY=""
+    ```
+
+### Folder Structure
+
+```
+.
+├── .env
+├── .env.example
+├── .gitignore
+├── cmd
+|  ├── contribute.go
+|  ├── license.go
+|  ├── readme.go
 ├── go.mod
-├── go.sum                         # Go module dependencies
-├── internal                        # Internal modules
-│   ├── file_parser
-│   │   ├── fileParser.go
-│   ├── llm
-│   │   ├── ai.services.go
-│   ├── tree
-│   │   ├── buildTree.go
-│   ├── types
-│   │   ├── types.go
-│   ├── utils
-│   │   ├── buildPrompt.go
-│   │   ├── writeReadme.go
-├── main.go                         # Main entry point of the application
+├── go.sum
+├── internal
+|  ├── file_parser
+|  |  ├── fileParser.go
+|  ├── llm
+|  |  ├── ai.services.go
+|  ├── tree
+|  |  ├── buildTree.go
+|  ├── types
+|  |  ├── types.go
+|  ├── utils
+|  |  ├── buildPrompt.go
+|  |  ├── writeReadme.go
+├── main.go
 ```
 
-## Authors
+### Author
 
-- **WalonCode** (GitHub: [walonCode](https://github.com/walonCode))
+- **walonCode**
 
-## Contribution
+---
 
-Please refer to [Contribute.md](Contribute.md) for guidelines on how to contribute to this project.
+Feel free to raise an issue or submit a PR if you'd like to contribute to the project.
+
+---

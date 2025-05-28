@@ -12,44 +12,41 @@ import (
 	"github.com/walonCode/readmeMaker/internal/utils"
 )
 
-
-
 func main() {
 	err := godotenv.Load(".env")
 	if err != nil {
 		fmt.Println("Error loading the .env file")
 	}
 
-	var projectName, model string
-	var license,contribute bool
+	var projectName, model, license string
+	var  contribute bool
 
-	flag.StringVar(&projectName, "projectName","", "This is the name of the repo")
-	flag.StringVar(&model, "model","mistral", "This is the name of the ai you want to use")
-	flag.BoolVar(&license, "license", false, "Weather you want to generate a license file")
+	flag.StringVar(&projectName, "projectName", "", "This is the name of the repo")
+	flag.StringVar(&model, "model", "mistral", "This is the name of the ai you want to use")
+	flag.StringVar(&license, "license", "", "The type of license you want to generate")
 	flag.BoolVar(&contribute, "contribute", false, "weather you want to generate a contribute file")
 
 	flag.Parse()
 
 	resultChan := make(chan types.GenResult)
 	var wg sync.WaitGroup
-	
-	if license {
+
+	if license != "" {
 		wg.Add(1)
-		go cmd.License(model, resultChan, &wg)
+		go cmd.License(model, license, resultChan, &wg)
 	}
 
 	if contribute {
 		wg.Add(1)
-		go cmd.Contribute(model, resultChan, &wg)
+		go cmd.Contribute(model, projectName, resultChan, &wg)
 	}
 
-	if projectName != ""{
+	if projectName != "" {
 		wg.Add(1)
 		go cmd.Readme(projectName, model, resultChan, &wg)
 	}
 
-
-	go func(){
+	go func() {
 		wg.Wait()
 		close(resultChan)
 	}()

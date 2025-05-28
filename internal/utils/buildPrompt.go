@@ -8,7 +8,7 @@ func BuildPrompt(treePath, projectName string) (string, error) {
 		return "",err
 	}
 	prompt := `
-		You are an expert documentation writer.
+		You are an expert documentation writer and a senior developer .
 		Using the following project structure and code snippets, write a professional  README.md that is written like a senior software engineer.
 
 		Make sure to include:
@@ -22,6 +22,7 @@ func BuildPrompt(treePath, projectName string) (string, error) {
 		- Folder structure (nicely formatted)
 		- Authors name and github handle/X handle used dummy text
 		- Contribution instructions if appropriate
+		- Add some github icons for the language, tools to make the readme more appealing
 
 		Note: Remove all unwanted text from the final response i want a clean readme, also read the snippet to get code concept better thank you
 

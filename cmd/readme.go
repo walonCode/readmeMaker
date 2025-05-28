@@ -18,7 +18,6 @@ import (
 func Readme(projectName, model string, resultChan chan <- types.GenResult, wg *sync.WaitGroup ) {
 	defer wg.Done()
 
-	
 	if projectName == "" {
 		fmt.Println("❌ Error: --projectName name is required")
 		flag.Usage()
