@@ -16,12 +16,12 @@ Follow these steps to get the project up and running on your local machine.
    ![Fork](https://img.shields.io/badge/Fork-blue)
 2. **Clone** your forked repository:
    ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/readmeMaker.git
+   git clone https://github.com/waloncCode/readmeMaker.git
    cd readmeMaker
    ```
 3. **Set upstream remote**:
    ```sh
-   git remote add upstream https://github.com/ORIGINAL_OWNER/readmeMaker.git
+   git remote add upstream https://github.com/walonCode/readmeMaker.git
    ```
 
 ### 🎯 **Set up the Project**
@@ -45,7 +45,7 @@ All new features and fixes should be created in a new branch. Use the following 
 ## 🐛 **Submitting Issues**
 
 Before you submit an issue:
-- Make sure it isn't already reported by searching the [issues](https://github.com/ORIGINAL_OWNER/readmeMaker/issues).
+- Make sure it isn't already reported by searching the [issues](https://github.com/walonCode/readmeMaker/issues).
 - Provide a clear and concise title and description.
 - Include steps to reproduce the issue, and if applicable, expected vs. actual results.
 

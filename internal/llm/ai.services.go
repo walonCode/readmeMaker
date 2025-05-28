@@ -34,7 +34,6 @@ var models = map[string]string{
 func AiGeneration(prompt, model string) (string, error) {
 	apiKey := os.Getenv("API_KEY")
 
-
 	reqBody := ChatCompletionRequest{
 		Model: models[model],
 		Messages: []ChatMessage{

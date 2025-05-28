@@ -41,7 +41,7 @@ ReadmeMaker is a command-line tool for generating professional and clean README 
 Run the tool using the following command:
 
 ```bash
-go run main.go -projectName <projectName> -model <model> -license <license> -contribute
+go run main.go -projectName <projectName> -model <model> -license <license type> -contribute
 ```
 
 - `projectName`: The name of the project/repository.
