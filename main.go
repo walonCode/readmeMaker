@@ -12,12 +12,15 @@ import (
 	"github.com/walonCode/readmeMaker/internal/utils"
 )
 
+
+
 func main() {
 	err := godotenv.Load(".env")
 	if err != nil {
 		fmt.Println("Error loading the .env file")
 	}
 
+	
 	var projectName, model, license string
 	var  contribute bool
 
@@ -27,6 +30,11 @@ func main() {
 	flag.BoolVar(&contribute, "contribute", false, "weather you want to generate a contribute file")
 
 	flag.Parse()
+
+	if projectName == "" {
+		log.Fatal("usage: readmeMaker --projectName=<your project name>")
+	}
+
 
 	resultChan := make(chan types.GenResult)
 	var wg sync.WaitGroup

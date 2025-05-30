@@ -41,7 +41,6 @@ func AiGeneration(prompt, model string) (string, error) {
 		},
 	}
 
-	
 
 	bodyBytes, err := json.Marshal(reqBody)
 	if err != nil {
